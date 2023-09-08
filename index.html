@@ -1,0 +1,121 @@
+!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desert Travellers</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to Desert Travellers App</h1>
+        <p>Make Your Trips More Efficient and Lucrative</p>
+    </header>
+
+    <main>
+        <h2>Signup</h2>
+        <form id="signupForm">
+            <input type="text" placeholder="Name" name="name" required><br>
+            <input type="email" placeholder="Email" name="email" required><br>
+            <input type="tel" placeholder="Phone Number" name="phoneNumber" required><br>
+            <button type="button" onclick="sendAuthCode('email')">Send Email Code</button>
+            <button type="button" onclick="sendAuthCode('phone')">Send SMS Code</button><br>
+            <input type="text" placeholder="Authentication Code" name="authCode" required><br>
+            <button type="button" onclick="signup()">Signup</button>
+        </form>
+
+        <h2>Login</h2>
+        <form id="loginForm">
+            <input type="email" placeholder="Email" name="loginEmail" required><br>
+            <input type="tel" placeholder="Phone Number" name="loginPhoneNumber" required><br>
+            <button type="button" onclick="sendAuthCode('email', true)">Send Email Code</button>
+            <button type="button" onclick="sendAuthCode('phone', true)">Send SMS Code</button><br>
+            <input type="text" placeholder="Authentication Code" name="loginAuthCode" required><br>
+            <button type="button" onclick="login()">Login</button>
+        </form>
+
+        <form id="journeyForm">
+            <label for="startCity">Starting City:</label>
+            <select id="startCity" name="startCity">
+                <option value="Makkah">Makkah</option>
+                <option value="Riyadh">Riyadh</option>
+                <option value="Jeddah">Jeddah</option>
+                <option value="Medina">Medina</option>
+                <!-- More cities can be added here -->
+            </select>
+
+            <label for="destinationCities">Destination Cities:</label>
+            <select id="destinationCities" name="destinationCities" multiple>
+                <option value="Riyadh">Riyadh</option>
+                <option value="Jeddah">Jeddah</option>
+                <option value="Khobar">Khobar</option>
+                <option value="Jazan">Jazan</option>
+                <option value="Medina">Medina</option>
+                <!-- More cities can be added here -->
+            </select>
+
+            <label for="vehicleType">Vehicle Type:</label>
+            <select id="vehicleType" name="vehicleType">
+                <option value="Truck">Truck</option>
+                <option value="Van">Van</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label for="loadType">Load Type:</label>
+            <input type="text" id="loadType" name="loadType" placeholder="Enter load type" required>
+
+            <label for="subscriptionTier">Subscription Tier:</label>
+            <select id="subscriptionTier" name="subscriptionTier">
+                <option value="Free">Free</option>
+                <option value="B">Tier B</option>
+                <option value="A">Tier A</option>
+            </select>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <section class="features">
+            <!-- Any features or other content you wish to add -->
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Migren Driver App. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function sendAuthCode(method, isLogin = false) {
+            const form = isLogin ? document.getElementById('loginForm') : document.getElementById('signupForm');
+            const authCodeInput = isLogin ? form.loginAuthCode : form.authCode;
+
+            // Simulate sending authentication code
+            const authCode = Math.floor(1000 + Math.random() * 9000);
+            authCodeInput.value = authCode;
+        }
+
+        function signup() {
+            const form = document.getElementById('signupForm');
+            const name = form.name.value;
+            const email = form.email.value;
+            const phoneNumber = form.phoneNumber.value;
+            const authCode = form.authCode.value;
+
+            // Perform signup logic (e.g., send data to server)
+            console.log('Signup:', name, email, phoneNumber, authCode);
+        }
+
+        function login() {
+            const form = document.getElementById('loginForm');
+            const loginEmail = form.loginEmail.value;
+            const loginPhoneNumber = form.loginPhoneNumber.value;
+            const loginAuthCode = form.loginAuthCode.value;
+
+            // Perform login logic (e.g., send data to server)
+            console.log('Login:', loginEmail, loginPhoneNumber, loginAuthCode);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "truck-driver-app",
+  "version": "1.0.0",
+  "description": "Efficient service for all",
+  "main": "server.mjs",
+  "scripts": {
+    "start": "node server.mjs"
+  },
+  "type":"module",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^6.0.3",
+    "bcrypt": "^5.1.1",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "author": "DnK",
+  "license": "MIT"
+}
